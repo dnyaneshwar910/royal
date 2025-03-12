@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Royal Tech Technology PVT. LTD. </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <meta name="description"
+        content="Welcome to Royal Tech Technology! Discover top-notch freelancers without breaking the bank. From design to tech, find affordable talent for your projects. Join us today and bring your ideas to life without the hefty price tag!">
+    <style>
+        /* Googlefont Poppins CDN Link */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 100px;
+            background: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+
+        }
+
+        .active {
+            color: #ec1d1d;
+        }
+
+        nav .navbar {
+            height: 100%;
+            max-width: 1550px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* margin: auto; */
+            /* background: red; */
+            padding: 0 50px;
+        }
+
+        .navbar>img {
+            height: 100px;
+            width: 100px;
+            padding: 10px;
+        }
+
+        .navbar .logo a {
+            font-size: 30px;
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav .navbar .nav-links {
+            line-height: 96px;
+            height: 100%;
+        }
+
+        nav .navbar .links {
+            display: flex;
+        }
+
+        nav .navbar .links li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0 14px;
+        }
+
+        nav .navbar .links li a {
+            height: 100%;
+            text-decoration: none;
+            white-space: nowrap;
+            color: black;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow {
+            transform: rotate(180deg);
+        }
+
+        nav .navbar .links li .arrow {
+            /* background: red; */
+            height: 100%;
+            width: 22px;
+            line-height: 96px;
+            text-align: center;
+            display: inline-block;
+            color: black;
+            transition: all 0.3s ease;
+        }
+
+        nav .navbar .links li .sub-menu {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            line-height: 40px;
+            background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 4px 4px;
+            display: none;
+            z-index: 2;
+        }
+
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu {
+            display: block;
+        }
+
+        .navbar .links li .sub-menu li {
+            padding: 0 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .links li .sub-menu a {
+            color: black;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .links li .sub-menu .more-arrow {
+            line-height: 40px;
+        }
+
+        /* 
+        .navbar .links li .htmlCss-more-sub-menu {
+            /* line-height: 40px; */
+
+        .navbar .links li .sub-menu .more-sub-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            border-radius: 0 4px 4px 4px;
+            z-index: 1;
+            display: none;
+        }
+
+        .links li .sub-menu .more:hover .more-sub-menu {
+            display: block;
+        }
+
+        .navbar .search-box {
+            position: relative;
+            height: 0px;
+            width: 40px;
+        }
+
+        .navbar .search-box i {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            line-height: 5px;
+            text-align: right;
+            font-size: 35px;
+            color: black;
+            font-weight: 100;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .search-box .input-box {
+            position: absolute;
+            right: calc(100% - 40px);
+            top: 80px;
+            height: 60px;
+            width: 300px;
+            background: #3E8DA8;
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.showInput .search-box .input-box {
+            top: 65px;
+            opacity: 1;
+            pointer-events: auto;
+            background: #3E8DA8;
+        }
+
+        .search-box .input-box::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            background: #3E8DA8;
+            right: 10px;
+            top: -6px;
+            transform: rotate(45deg);
+        }
+
+        .search-box .input-box input {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 4px;
+            transform: translate(-50%, -50%);
+            height: 35px;
+            width: 280px;
+            outline: none;
+            padding: 0 15px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .navbar .nav-links .sidebar-logo {
+            display: none;
+        }
+
+        .navbar .bx-menu {
+            display: none;
+        }
+
+        .login {
+            padding: 8px;
+            width: 80px;
+            border: 3px solid black;
+            border-radius: 10px;
+            background: linear-gradient(to bottom, #b98ff8 0%, #74b3f1 100%);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        .services {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            /* background: #f2f2f2; */
+        }
+
+        .wrapper {
+            display: grid;
+            margin-top: 20px;
+            grid-gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        @media (max-width: 700px) {
+            .wrapper {
+                margin: 50px auto;
+            }
+        }
+
+        .wrapper .box {
+            width: 350px;
+            margin: 0 auto;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .wrapper .box .front-face {
+            background: #fff;
+            height: 220px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .box .front-face .icon {
+            height: 80px;
+        }
+
+        .box .front-face .icon i {
+            font-size: 65px;
+        }
+
+        .box .front-face span,
+        .box .back-face span {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .box .front-face .icon i,
+        .box .front-face span {
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .box .back-face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            height: 220px;
+            width: 100%;
+            padding: 30px;
+            color: #fff;
+            opacity: 0;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+            transform: translateY(110px) rotateX(-90deg);
+            box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .box .back-face p {
+            margin-top: 10px;
+            text-align: justify;
+        }
+
+        .box:hover .back-face {
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+
+        .box:hover .front-face {
+            opacity: 0;
+            transform: translateY(-110px) rotateX(90deg);
+        }
+
+        #home {
+            width: 100%;
+            padding: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 38px;
+        }
+
+        .home-left {
+            height: 330px;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .home-left img {
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .home-right {
+            width: 50%;
+        }
+
+        .home-heading {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .home-para {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            position: relative;
+            width: 0;
+        }
+
+        .btn:hover::after {
+            content: '';
+            height: 4px;
+            position: absolute;
+            background-color: aqua;
+            left: 0;
+            bottom: -10px;
+            animation: width;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            border-radius: 5px;
+        }
+
+        @keyframes width {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        #workFlow {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .heading {
+            margin: 1rem auto;
+            text-align: center;
+        }
+
+        .para {
+            margin: 1rem auto;
+        }
+
+        .num-container {
+            width: 70%;
+            margin: 1rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .num-item {
+            font-size: 1.5rem;
+            line-height: 1.4rem;
+            color: black;
+            padding: 8px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background: linear-gradient(to bottom, #b98ff8 0%, #74b3f1 100%);
+        }
+
+        /* Our Goal */
+        #goal {
+            width: 80%;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .goal-left {
+            width: 60%;
+            line-height: 2rem;
+        }
+
+        .goal-left h2 {
+            font-size: 2.4rem;
+        }
+
+        .goal-left p {
+            line-height: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .goal-left ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .goal-left ul li::before {
+            line-height: 1.5rem;
+            content: '✓';
+            color: red;
+        }
+
+        .goal-right {
+            position: relative;
+            width: 35%;
+        }
+
+        .goal-right img {
+            width: 100%;
+            cursor: pointer;
+            border-radius: 10px;
+            filter: drop-shadow(3px 4px 5px black);
+            transition: all 0.2s linear;
+        }
+
+        .goal-right img:hover {
+            transform: translateY(-5px);
+            filter: drop-shadow(5px 6px 7px black);
+        }
+
+        /* Our Team */
+        #our-Team {
+            width: 80%;
+            margin: 4rem auto 1rem;
+        }
+
+        #our-Team h2 {
+            text-align: center;
+            margin: 1rem auto 4rem;
+            position: relative;
+        }
+
+        #our-Team h2::after {
+            content: '';
+            height: 4px;
+            margin: 0 auto;
+            text-align: center;
+            width: 15%;
+            background-color: aqua;
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            border-radius: 5px;
+            transform: translate(-50%);
+        }
+
+        .teamContainer {
+            width: 88%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .team-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0.5rem;
+        }
+
+        .team-item h5 {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .team-item span {
+            margin-top: .4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: rgb(7, 176, 176);
+        }
+
+        .team-item img {
+            width: 80px;
+        }
+
+        @media screen and (max-width: 978px) {
+            .container {
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+
+            .card {
+                max-width: 700px;
+                margin: 20px 0;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        footer {
+            /* position: fixed; */
+            background: #140B5C;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 100px;
+            height: 1px;
+            width: 100%;
+            background: #AFAFB6;
+        }
+
+        footer .content {
+            max-width: 1250px;
+            margin: auto;
+            padding: 30px 40px 40px 40px;
+        }
+
+        footer .content .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .logo-details>img {
+            height: 80px;
+            width: 80px;
+            /* margin-top: 15px; */
+        }
+
+        .content .top .logo-details {
+            color: #fff;
+            font-size: 30px;
+        }
+
+        .content .top .media-icons {
+            display: flex;
+        }
+
+        .content .top .media-icons a {
+            height: 40px;
+            width: 40px;
+            margin: 0 8px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-size: 17px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .top .media-icons a:nth-child(1) {
+            background: #4267B2;
+        }
+
+        .top .media-icons a:nth-child(1):hover {
+            color: #4267B2;
+            background: #fff;
+        }
+
+        .top .media-icons a:nth-child(2) {
+            background: #1DA1F2;
+        }
+
+        .top .media-icons a:nth-child(2):hover {
+            color: #1DA1F2;
+            background: #fff;
+        }
+
+        .top .media-icons a:nth-child(3) {
+            background: #E1306C;
+        }
+
+        .top .media-icons a:nth-child(3):hover {
+            color: #E1306C;
+            background: #fff;
+        }
+
+        .top .media-icons a:nth-child(4) {
+            background: #0077B5;
+        }
+
+        .top .media-icons a:nth-child(4):hover {
+            color: #0077B5;
+            background: #fff;
+        }
+
+        .top .media-icons a:nth-child(5) {
+            background: #FF0000;
+        }
+
+        .top .media-icons a:nth-child(5):hover {
+            color: #FF0000;
+            background: #fff;
+        }
+
+        footer .content .link-boxes {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer .content .link-boxes .box {
+            width: calc(100% / 5 - 10px);
+        }
+
+        .content .link-boxes .box .link_name {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .link-boxes .box .link_name::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            height: 2px;
+            width: 35px;
+            background: #fff;
+        }
+
+        .content .link-boxes .box li {
+            margin: 6px 0;
+            list-style: none;
+        }
+
+        .content .link-boxes .box li a {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.4s ease
+        }
+
+        .content .link-boxes .box li a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .content .link-boxes .input-box {
+            margin-right: 55px;
+        }
+
+        .link-boxes .input-box input {
+            height: 40px;
+            width: calc(100% + 55px);
+            outline: none;
+            border: 2px solid #AFAFB6;
+            background: #140B5C;
+            border-radius: 4px;
+            padding: 0 15px;
+            font-size: 15px;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+        .link-boxes .input-box input::placeholder {
+            color: #AFAFB6;
+            font-size: 16px;
+        }
+
+        .link-boxes .input-box input[type="button"] {
+            background: #fff;
+            color: #140B5C;
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 4px 0;
+            opacity: 0.8;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .input-box input[type="button"]:hover {
+            opacity: 1;
+        }
+
+        footer .bottom-details {
+            width: 100%;
+            background: #0F0844;
+        }
+
+        footer .bottom-details .bottom_text {
+            max-width: 1250px;
+            margin: auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bottom-details .bottom_text span,
+        .bottom-details .bottom_text a {
+            font-size: 14px;
+            font-weight: 300;
+            color: #fff;
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        .bottom-details .bottom_text a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .bottom-details .bottom_text a {
+            margin-right: 10px;
+        }
+
+        @media (max-width: 900px) {
+            footer .content .link-boxes {
+                flex-wrap: wrap;
+            }
+
+            footer .content .link-boxes .input-box {
+                width: 40%;
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            footer {
+                position: relative;
+            }
+
+            .content .top .logo-details {
+                font-size: 26px;
+            }
+
+            .content .top .media-icons a {
+                height: 35px;
+                width: 35px;
+                font-size: 14px;
+                line-height: 35px;
+            }
+
+            footer .content .link-boxes .box {
+                width: calc(100% / 3 - 10px);
+            }
+
+            footer .content .link-boxes .input-box {
+                width: 60%;
+            }
+
+            .bottom-details .bottom_text span,
+            .bottom-details .bottom_text a {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            footer::before {
+                top: 145px;
+            }
+
+            footer .content .top {
+                flex-direction: column;
+            }
+
+            .content .top .media-icons {
+                margin-top: 16px;
+            }
+
+            footer .content .link-boxes .box {
+                width: calc(100% / 2 - 10px);
+            }
+
+            footer .content .link-boxes .input-box {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 784px) {
+            #list {
+                display: none;
+            }
+
+            #hamBurger {
+                cursor: pointer;
+                display: block;
+                z-index: 20;
+                font-size: 2rem;
+            }
+
+            .navbar .responsive {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0%;
+                left: 100%;
+                padding: 2rem 0;
+                z-index: 2;
+                height: 100vh;
+                background-color: rgb(24, 23, 24);
+                width: 100%;
+                transition: all 0.5s linear;
+                opacity: 0.9;
+            }
+
+            .navbar ul li {
+                margin: 0.4rem 0;
+            }
+
+            .responsive.active {
+                left: 0%;
+            }
+
+            .goal-right {
+                width: 100%;
+                margin: 0 auto 2rem;
+            }
+
+            .goal-left {
+                width: 100%;
+                text-align: center;
+            }
+
+            #goal {
+                flex-direction: column-reverse;
+            }
+        }
+
+        @media screen and (max-width: 633px) {
+            #home {
+                flex-direction: column;
+            }
+
+            .home-left {
+                width: 100%;
+                height: auto;
+            }
+
+            .home-left img {
+                width: 100%;
+            }
+
+            .home-right {
+                margin-top: 2rem;
+                width: 100%;
+            }
+
+            .para {
+                width: 90%;
+            }
+
+            .num-container {
+                flex-direction: column;
+            }
+
+            .num-item {
+                margin: 1rem;
+            }
+
+            .teamContainer {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width:1050px) {
+            nav .navbar {
+                max-width: 100%;
+                padding: 0 21px;
+            }
+
+            nav .navbar .logo a {
+                font-size: 20px;
+            }
+
+            nav .navbar .links li {
+                padding: 0 10px;
+                white-space: nowrap;
+            }
+
+            nav .navbar .links li a {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width:800px) {
+            nav {
+                /* position: relative; */
+            }
+
+            .navbar .bx-menu {
+                display: block;
+            }
+
+            nav .navbar .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                display: block;
+                max-width: 270px;
+                width: 100%;
+                background: #81cae3;
+                line-height: 40px;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.5s ease;
+                z-index: 1000;
+            }
+
+            .navbar .nav-links .sidebar-logo {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .sidebar-logo .logo-name {
+                font-size: 25px;
+                color: white;
+            }
+
+            .sidebar-logo i,
+            .navbar .bx-menu {
+                font-size: 35px;
+                font-style: bold;
+                color: black;
+            }
+
+            nav .navbar .links {
+                display: block;
+                margin-top: 20px;
+            }
+
+            nav .navbar .links li .arrow {
+                line-height: 40px;
+            }
+
+            nav .navbar .links li {
+                display: block;
+            }
+
+            nav .navbar .links li .sub-menu {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                display: none;
+            }
+
+            nav .navbar .links li .sub-menu li {
+                border-bottom: none;
+
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+                position: relative;
+                left: 0;
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .links li:hover .htmlcss-arrow,
+            .links li:hover .js-arrow {
+                transform: rotate(0deg);
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+            }
+
+            .navbar .links li .sub-menu .more span {
+                /* background: red; */
+                display: flex;
+                align-items: center;
+                /* justify-content: space-between; */
+            }
+
+            .links li .sub-menu .more:hover .more-sub-menu {
+                display: none;
+            }
+
+            nav .navbar .links li:hover .htmlCss-sub-menu,
+            nav .navbar .links li:hover .js-sub-menu {
+                display: none;
+            }
+
+            .navbar .nav-links.show1 .links .htmlCss-sub-menu,
+            .navbar .nav-links.show3 .links .js-sub-menu,
+            .navbar .nav-links.show2 .links .more .more-sub-menu {
+                display: block;
+            }
+
+            .navbar .nav-links.show1 .links .htmlcss-arrow,
+            .navbar .nav-links.show3 .links .js-arrow {
+                transform: rotate(180deg);
+            }
+
+            .navbar .nav-links.show2 .links .more-arrow {
+                transform: rotate(90deg);
+            }
+
+            .login {
+                padding: 8px;
+                width: 80px;
+                border: 3px solid black;
+                border-radius: 7px;
+                margin-left: 40px;
+                background-color: rgb(37, 225, 37);
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        }
+
+        @media (max-width:370px) {
+            nav .navbar .nav-links {
+                max-width: 100%;
+            }
+        }
+    </style>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <img src="royal_tech_technologies-removebg-preview.png" alt="Logo">
+            <div class="logo"><a href="#">Royal Tech Technology PVT. LTD</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name">Royal Tech Technology PVT. LTD</span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a class="nav_link active" href="/">HOME</a></li>
+                    <li>
+                        <a class="nav_link active" href="/about.html">About Us</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a class="nav_link" href="#">Company</a></li>
+                            <li class="more">
+                                <span><a class="nav_link" href="#">Developers</a>
+                                </span>
+                                <i class='bx bxs-chevron-right arrow more-arrow'></i>
+                                <ul class="more-sub-menu sub-menu">
+                                    <li><a class="nav_link" href="#">Darade Dnyaneshwar</a></li>
+                                    <li><a class="nav_link" href="#">Dhere Vaibhav</a></li>
+                                    <li><a class="nav_link" href="#">Shinde Nikhil</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav_link" href="#">Services</a>
+                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+                        <ul class="js-sub-menu sub-menu">
+                            <li><a class="nav_link active" href="#">Web- Development</a></li>
+                            <li><a class="nav_link" href="#">Website Maintenance</a></li>
+                            <li><a class="nav_link" href="#">Application Developement</a></li>
+                            <li><a class="nav_link" href="#">Data Visualization</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav_link" href="/contact us.html">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+            <button class="login">Login</button>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="home-left">
+            <img src="building.jpg" alt="">
+        </div>
+        <div class="home-right">
+            <h2 class="home-heading"> Wel-Come To Royal Tech Technology </h2>
+            <p class="home-para">"Welcome to our Freelancer website, your gateway to unlocking bespoke solutions
+                tailored to your specific needs. Whether you're seeking a skilled designer, a proficient developer, or a
+                creative wordsmith, our platform connects you with talented freelancers ready to bring your vision to
+                life. With a focus on personalized service and seamless communication, we're committed to helping you
+                find the perfect match for your project. Dive into our vibrant community and discover the expertise you
+                need to make your ideas flourish."
+
+                <a href="" class="btn"> Read More....</a>
+        </div>
+    </section>
+    <!--================== Home Section Ends Here -->
+
+    <!--================== Workflow Section Starts from Here ==================-->
+    <section id="workFlow">
+        <h2 class="heading"> Our Workflow Speed. </h2>
+        <p class="para">"Accelerate your projects with streamlined processes and efficient workflows, ensuring swift
+            <br> turnaround times without compromising on quality. <br> Our platform empowers you to optimize every step
+            of your project journey, from initial briefing <br> to final delivery, maximizing productivity and achieving
+            results faster than ever before."
+        <div class="num-container">
+            <div class="num-item"><span>+882 <br>Customers</span></div>
+            <div class="num-item"><span>+90% <br>Action Plans</span></div>
+            <div class="num-item"><span>+592 <br>Downloads</span></div>
+        </div>
+    </section>
+    <!--================== Workflow Section Ends Here -->
+
+
+    <!--================== Goal Section Starts from Here ==================-->
+    <section id="goal">
+        <div class="goal-left">
+            <h2>Our Goal</h2>
+            <p>"Our goal? Making your freelance journey effortless and rewarding. Welcome to a world where collaboration
+                is king and success is shared."</p>
+            <ul>
+                <li> Streamlining processes to save time and resources.</li>
+                <li> Fostering seamless communication and teamwork.</li>
+                <li> Ensuring both clients and freelancers are delighted with their experiences.</li>
+                <li>
+                    Empowering freelancers to expand their skills and opportunities.
+                </li>
+                <li>
+                    Building a supportive network where talent thrives and connects.
+
+
+
+                </li>
+            </ul>
+            <a href="" class="btn"> Contact Us</a>
+        </div>
+        <div class="goal-right">
+            <img src="our goal.png" alt="">
+        </div>
+    </section>
+    <!--================== Goal Section Ends Here -->
+
+    <!--================== Our Team Section Starts from Here ==================-->
+    <section id="our-Team">
+        <h2>Our Developer</h2>
+        <div class="teamContainer">
+            <div class="team-item">
+                <img src="emoji.png" alt="">
+                <h5 class="member-name">Darade Dnyaneshwar</h5>
+                <span class="role">Software Developer </span>
+            </div>
+            <div class="team-item">
+                <img src="emoji.png" alt="">
+                <h5 class="member-name">Nikhil Shinde</h5>
+                <span class="role">Web-Developer</span>
+            </div>
+            <div class="team-item">
+                <img src="emoji.png" alt="">
+                <h5 class="member-name">Dhere Vaibhav</h5>
+                <span class="role">Wordpress Developer</span>
+            </div>
+            <div class="team-item">
+                <img src="emoji.png" alt="">
+                <h5 class="member-name">Lucky Aghav</h5>
+                <span class="role">Designer</span>
+            </div>
+        </div>
+    </section>
+    <section class="services">
+        <div class="wrapper">
+            <div class="box">
+                <div class="front-face">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span>Web Development</span>
+                </div>
+                <div class="back-face">
+                    <span>Web-Developement</span>
+                    <p>Web Development
+                        We provide cutting-edge web development services using the latest technologies to build scalable
+                        and robust web applications.
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="front-face">
+                    <div class="icon">
+                        <i class="fa fa-mobile"></i>
+                    </div>
+                    <span>Mobile App Development</span>
+                </div>
+                <div class="back-face">
+                    <span>Mobile App Development</span>
+                    <p>
+                        Our team creates high-quality mobile applications for both Android and iOS platforms to meet
+                        your business needs.
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="front-face">
+                    <div class="icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <span>Cloud Solutions</span>
+                </div>
+                <div class="back-face">
+                    <span>Cloud Solutions</span>
+                    <p>We offer comprehensive cloud solutions to help you migrate, manage, and optimize your cloud
+                        infrastructure.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="box">
+                <div class="front-face">
+                    <div class="icon">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <span>Cyber Security</span>
+                </div>
+                <div class="back-face">
+                    <span>Cybersecurity</span>
+                    <p>"
+                        Protect your business with our advanced cybersecurity services, including threat detection,
+                        prevention, and response."
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="front-face">
+                    <div class="icon">
+                        <i class="fa fa-handshake"></i>
+                    </div>
+                    <span>IT Consulting</span>
+                </div>
+                <div class="back-face">
+                    <span>IT Consulting</span>
+                    <p>
+                        Our expert consultants provide strategic IT consulting services to help you streamline your
+                        operations and achieve your business goals.
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="front-face">
+                    <div class="icon">
+                        <i class="fas fa-phone-volume"></i>
+
+                    </div>
+                    <span>Technical Support</span>
+                </div>
+                <div class="back-face">
+                    <span>Technical Support</span>
+                    <p>
+                        We offer 24/7 technical support to ensure that your IT systems are always running smoothly and
+                        efficiently.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="content">
+            <div class="top">
+                <div class="logo-details">
+                    <img src="royal_tech_technologies-removebg-preview.png" alt="">
+                    <span class="logo_name">Royal Tech Technology PVT. LTD</span>
+                </div>
+                <div class="media-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="link-boxes">
+                <ul class="box">
+                    <li class="link_name">Company</li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Get started</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">Services</li>
+                    <li><a href="#">App design</a></li>
+                    <li><a href="#">Web design</a></li>
+                    <li><a href="#">Website Mentances</a></li>
+                    <li><a href="#">Cyber Cunsult</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">Account</li>
+                    <li><a href="#">Profiles</a></li>
+                    <li><a href="#">Company account</a></li>
+                    <li><a href="#">Prefrences</a></li>
+                    <li><a href="#">Performance</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">Courses</li>
+                    <li><a href="#">HTML & CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Android Studio</a></li>
+                    <li><a href="#">IDE Set Up</a></li>
+                </ul>
+                <ul class="box input-box">
+                    <li class="link_name">Subscribe</li>
+                    <li><input type="text" placeholder="Enter your email"></li>
+                    <li><input type="button" value="Subscribe"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-details">
+            <div class="bottom_text">
+                <span class="copyright_text">Copyright © 2024 <a href="#">Royal Tech Technology</a>All rights
+                    reserved</span>
+                <span class="policy_terms">
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Terms & condition</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js">
+    </script>
+</body>
+
+</html>
